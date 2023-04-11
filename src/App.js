@@ -12,10 +12,6 @@ const ChuckNorrisJokes = () => {
     }
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem('jokes', JSON.stringify(jokes));
-  }, [jokes]);
-
   const categoryChange = (event) => {
     setSelectedCategory(event.target.value);
     fetchJoke(event.target.value);
@@ -26,12 +22,14 @@ const ChuckNorrisJokes = () => {
     const response = await axios.get(url);
     const newJoke = response.data.value;
     setJokes([...jokes, newJoke]);
+    localStorage.setItem('jokes', JSON.stringify([...jokes, newJoke]));
   }
 
   const deleteJoke = (index) => {
     const newJokes = [...jokes];
     newJokes.splice(index, 1);
     setJokes(newJokes);
+    localStorage.setItem('jokes', JSON.stringify(newJokes));
   }
 
   return (
