@@ -18,32 +18,26 @@ const ChuckNorrisJokes = () => {
     setJoke(response.data.value);
   }
 
+  const handleDeleteClick = () => {
+    setJoke('');
+  }
+
   return (
-      <div>
-        <select value={selectedCategory} onChange={handleCategoryChange}>
-          <option value="">Escoge una categoría</option>
-          <option value="animal">Animal</option>
-          <option value="career">Carrera</option>
-          <option value="celebrity">Celebridad</option>
-          <option value="science">Ciencia</option>
-          <option value="food">Comida</option>
-          <option value="sport">Deporte</option>
-          <option value="dev">Dev</option>
-          <option value="money">Dinero</option>
-          <option value="explicit">Explícito</option>
-          <option value="history">Historia</option>
-          <option value="fashion">Moda</option>
-          <option value="music">Música</option>
-          <option value="movie">Películas</option> 
-          <option value="political">Política</option>
-          <option value="religion">Religión</option>
-          <option value="travel">Viajes</option>
-        </select>
-        <div class="joke">
-          <p>{joke}</p>
-          <button>Eliminar</button>
-        </div>
+    <div>
+      <select value={selectedCategory} onChange={handleCategoryChange}>
+        <option value="">Escoge una categoría</option>
+        {["animal", "career", "celebrity", "science", "food", "sport", "dev", "money", "explicit", "history", "fashion", "music", "movie", "political", "religion", "travel"].map((category) => (
+          <option key={category} value={category}>
+            {category.charAt(0).toUpperCase() + category.slice(1)}
+          </option>
+        ))}
+      </select>
+
+      <div className="joke">
+        <p>{joke}</p>
+        <button onClick={handleDeleteClick}>Eliminar</button>
       </div>
+    </div>
   );
 }
 
