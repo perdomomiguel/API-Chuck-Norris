@@ -75,8 +75,11 @@ button {
 }
 
 button:hover {
-  transition: 1s;
-  background-color: aliceblue;
-  color: rgb(201, 43, 43);
+  transition: .5s;
+  opacity: 70%;
   cursor: pointer;
+}
+
+p {
+  width: 600px;
 }

@@ -1,13 +1,22 @@
-import React, { useState } from 'react';
-// Se importa axios para recoger datos de la API
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-// 
 const ChuckNorrisJokes = () => {
   const [selectedCategory, setSelectedCategory] = useState('');
-  const [joke, setJoke] = useState('');
+  const [jokes, setJokes] = useState([]);
 
-  const handleCategoryChange = (event) => {
+  useEffect(() => {
+    const storedJokes = JSON.parse(localStorage.getItem('jokes'));
+    if (storedJokes) {
+      setJokes(storedJokes);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('jokes', JSON.stringify(jokes));
+  }, [jokes]);
+
+  const categoryChange = (event) => {
     setSelectedCategory(event.target.value);
     fetchJoke(event.target.value);
   }
@@ -15,16 +24,19 @@ const ChuckNorrisJokes = () => {
   const fetchJoke = async (category) => {
     const url = `https://api.chucknorris.io/jokes/random?category=${category}`;
     const response = await axios.get(url);
-    setJoke(response.data.value);
+    const newJoke = response.data.value;
+    setJokes([...jokes, newJoke]);
   }
 
-  const handleDeleteClick = () => {
-    setJoke('');
+  const deleteJoke = (index) => {
+    const newJokes = [...jokes];
+    newJokes.splice(index, 1);
+    setJokes(newJokes);
   }
 
   return (
     <div>
-      <select value={selectedCategory} onChange={handleCategoryChange}>
+      <select value={selectedCategory} onChange={categoryChange}>
         <option value="">Escoge una categoría</option>
         {["animal", "career", "celebrity", "science", "food", "sport", "dev", "money", "explicit", "history", "fashion", "music", "movie", "political", "religion", "travel"].map((category) => (
           <option key={category} value={category}>
@@ -33,10 +45,12 @@ const ChuckNorrisJokes = () => {
         ))}
       </select>
 
-      <div className="joke">
-        <p>{joke}</p>
-        <button onClick={handleDeleteClick}>Eliminar</button>
-      </div>
+      {jokes.map((joke, index) => (
+        <div key={index} className="joke">
+          <p>{joke}</p>
+          <button onClick={() => deleteJoke(index)}>Eliminar</button>
+        </div>
+      ))}
     </div>
   );
 }
