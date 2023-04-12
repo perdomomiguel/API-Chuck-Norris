@@ -21,10 +21,10 @@ Esta página consiste en seleccionar un tipo de chiste del menú de selección y
 
 ## Bibliotecas utilizadas
 
-1. React: Es una biblioteca de JavaScript utilizada para crear interfaces de usuario (UI) interactivas. Se utiliza para construir aplicaciones de una sola página, y permite la creación de componentes reutilizables que encapsulan el comportamiento y la presentación de una interfaz de usuario.
+- React: Es una biblioteca de JavaScript utilizada para crear interfaces de usuario (UI) interactivas. Se utiliza para construir aplicaciones de una sola página, y permite la creación de componentes reutilizables que encapsulan el comportamiento y la presentación de una interfaz de usuario.
 
-2. useState: Es un gancho (hook) que se utiliza para agregar estado a un componente funcional de React. La función useState devuelve un array con dos elementos: el estado actual y una función para actualizarlo.
+- useState: Es un gancho (hook) que se utiliza para agregar estado a un componente funcional de React. La función useState devuelve un array con dos elementos: el estado actual y una función para actualizarlo.
 
-3. useEffect: Es otro gancho de React que se utiliza para ejecutar efectos secundarios en un componente. Los efectos secundarios pueden ser, por ejemplo, hacer solicitudes HTTP, interactuar con APIs externas o actualizar el DOM.
+- useEffect: Es otro gancho de React que se utiliza para ejecutar efectos secundarios en un componente. Los efectos secundarios pueden ser, por ejemplo, hacer solicitudes HTTP, interactuar con APIs externas o actualizar el DOM.
 
-4. axios: Es una biblioteca de JavaScript que se utiliza para realizar solicitudes HTTP. Se utiliza en este código para hacer solicitudes a la API de Chuck Norris y obtener los chistes.
+- axios: Es una biblioteca de JavaScript que se utiliza para realizar solicitudes HTTP. Se utiliza en este código para hacer solicitudes a la API de Chuck Norris y obtener los chistes.
