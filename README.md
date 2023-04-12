@@ -1,6 +1,6 @@
 # Generador de chistes de Chuck Norris
 
-Esta página consiste en seleccionar un tipo de chiste del menú de selección y este generará uno al azar. Estos se acumulan infinitamente y también se pueden eliminar permanentemente. Estos no se borran al recargar la página ya que se encuentran almacenados en el almacenamiento local.
+Esta página consiste en seleccionar una categoría de chiste del menú de selección y este generará uno al azar. Estos se acumulan infinitamente y también se pueden eliminar permanentemente. Estos no se borran al recargar la página ya que se encuentran almacenados en el almacenamiento local.
 
 ## Tecnologías utilizadas
 - React
@@ -14,10 +14,11 @@ Esta página consiste en seleccionar un tipo de chiste del menú de selección y
 4. Inicia la aplicación usando `npm start`
 
 ## Cómo utilizar la aplicación
-1. Selecciona una categoría de chistes en el menú desplegable
-2. Haz clic en el botón "Obtener chiste" para obtener uno aleatorio de la categoría seleccionada
-3. Haz clic en el botón "Obtener otro chiste" para obtener uno nuevo aleatorio de la misma categoría
-4. ¡Disfruta de los chistes de Chuck Norris!
+1. Selecciona una categoría de chistes en el menú desplegable.
+2. Haz clic en el botón "Escoger una categoría" para obtener uno aleatorio de la categoría seleccionada.
+3. Haz clic en el botón de nuevo para obtener uno nuevo aleatorio de otra misma categoría.
+4. Elimina el chiste seleccionando el botón de "Eliminar"
+5. ¡Disfruta de los chistes de Chuck Norris!
 
 ## Bibliotecas utilizadas
 
