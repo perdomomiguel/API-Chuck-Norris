@@ -34,25 +34,20 @@ const ChuckNorrisJokes = () => { // Define un componente de React llamado ChuckN
 
   return ( // Devuelve el contenido del componente
     <div>
-      <select value={selectedCategory} onChange={categoryChange}> // Crea un elemento de selección de categorías
-        <option value="">Escoge una categoría</option> // Crea una opción predeterminada
+      <select value={selectedCategory} onChange={categoryChange}> 
+        <option value="">Escoge una categoría</option> 
         {["animal", "career", "celebrity", "science", "food", "sport", "dev", "money", "explicit", "history", "fashion", "travel"].map((category) => ( // Mapea cada categoría en un elemento de opción
           <option value={category} key={category}>{category}</option> // Asigna el valor y la etiqueta de la opción con el nombre de la categoría
         ))}
       </select>
-      {selectedCategory && ( // Si se ha seleccionado una categoría, muestra un botón para obtener un chiste nuevo y un botón para eliminar todos los chistes
-        <div>
-          <button onClick={() => fetchJoke(selectedCategory)}>Obtener chiste</button>
-          <button onClick={() => { setJokes([]); localStorage.removeItem('jokes'); }}>Eliminar todos los chistes</button>
-        </div>
-      )}
+    
       {jokes.length > 0 && ( // Si hay chistes almacenados, muestra la lista de chistes
         <ul>
           {jokes.map((joke, index) => ( // Mapea cada chiste en un elemento de lista con un botón de "Eliminar" para cada chiste
-            <li key={index}>
+            <p class="joke" key={index}>
               {joke}
               <button onClick={() => deleteJoke(index)}>Eliminar</button>
-            </li>
+            </p>
           ))}
         </ul>
       )}
